@@ -1,35 +1,31 @@
-function [gx] = gradiente(f, x)
+function [gfx] = gradiente(fname, x)
     %
-    % Aproximaci贸n al gradiente con diferencias centradas.
+    % Aproxima el gradiente con diferencias centradas.
     %
-    % Referencia:
-    %   A new method to compute second derivatives,
-    %   Hugo D. Scolnik & M. Juliana Gambini,
-    %   Departamento de Computaci贸n FCEN, UBA, [ANO?]
-    %
-    % Luis Roman Garcia  - 117077
     % Omar Trejo Navarro - 119711
+    % Luis Roman Garcia  - 117077
     % Fernanda Mora Alba - 103596
     %
-    % An谩lisis Aplicado
+    % An醠isis Aplicado
     % Otono 2014
     % ITAM
     %
     % In:
-    %   f  := funci贸n sobre la que se quiere aproximar el gradiente.
-    %   x  := vector en el que se quiere evaluar el gradiente.
+    %   fname := cadena de caracteres que codifica la funcion f.
+    %   x     := vector donde se evalua el gradiente.
     %
     % Out:
-    %   gx := el gradiente de la funci贸n f evaluado en x.
+    %   gfx   := vector con la aproximacion al gradiente.
     %
-    n  = size(x);
-    gx = zeros(n, 1);
-
-    % Definimos el tama帽o de h con base en la referencia.
-    h = eps^(1/3) * eye(n, n);
-
-    % Calculamos la parcial respecto a cada variable.
-    for  i = 1:n
-        gx(i) = ( f(x + h(:,i)) - f(x - h(:,i)) ) / (2 * h(i,i));
+    h   = 1.e-5;
+    n   = length(x);
+    gfx = zeros(n, 1);
+    fx  = feval(fname, x);
+    for k = 1:n
+        xt     = x;
+        x(k)   = x(k) + h;
+        fxt    = feval(fname, x);
+        x(k)   = x(k) - h;
+        gfx(k) = (fxt - fx) / h;
     end
 end

@@ -1,17 +1,15 @@
 function [H] = hessiana(fname, x)
     %
-    % Calculua la matriz Hessiana de f en el punto x.
+    % Calcular la matriz Hessiana en el punto x.
     %
     % Omar Trejo Navarro - 119711
-    % Luis Roman Garcia  - 117077
-    % Fernanda Mora Alba - 103596
     %
     % Análisis Aplicado
     % Otono 2014
     % ITAM
     %
     % In:
-    %   fname := cadena de caracteres que codifica la funcion f.
+    %   fname := cadena con el nombre de la función en Matlab.
     %   x     := vector columna de R^n donde se aproxima la Hessiana.
     %
     % Out:
@@ -23,6 +21,7 @@ function [H] = hessiana(fname, x)
     H  = zeros(n);
     h  = 1.e-05;
     f1 = feval(fname, x);
+
     for i = 1:n
         xi = x;
         xi(i) = xi(i) + h;
@@ -36,7 +35,7 @@ function [H] = hessiana(fname, x)
             f4     = feval(fname, xij);
             H(i,j) = (f4 - f2 - f3 + f1) / (h^2);
             if (i ~= j)
-                % Completar diagonal
+                % Completar la diagonal
                 H(j,i) = H(i,j);
             end
         end

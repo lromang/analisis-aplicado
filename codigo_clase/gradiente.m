@@ -22,6 +22,7 @@ function [gfx] = gradiente(fname, x)
     fx  = feval(fname, x);
 
     for k = 1:n
+        % xt = x;                   % Ineficiente
         x(k)   = x(k) + h;
         fxt     = feval(fname, x);
         x(k)   = x(k) - h;

@@ -21,7 +21,6 @@ function [alfa] = inter_cuad(f, x, p, c1, c2)
     % Out:
     %   alfa := tamaño del paso de descenso.
     %
-
     g1  = grad(f, x);
     g2  = grad(f, x + p);
     i   = 1;
@@ -35,8 +34,8 @@ function [alfa] = inter_cuad(f, x, p, c1, c2)
 
     % Resolvemos las ecuaciones para los coeficientes a y b,
     % y definimos alfa como el mínimo.
-    a    = ( f(x) - f(x + p) - g1' * p ) / -p^2;
-    b    = g1' + 2 * ( (f(x) - f(x + p) - g1'p) / p^2 ) * x;
+    a    = ( f(x) - f(x+p) - g1' * p ) / -p^2;
+    b    = g1' + 2 * ( (f(x) - f(x+p) - g1'p) / p^2 ) * x;
     alfa = -b / (2 * a);
 
     % Se deben satisfacer las condiciones de Wolfe.
