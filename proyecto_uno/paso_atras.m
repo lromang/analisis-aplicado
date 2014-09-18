@@ -6,7 +6,7 @@ function [alfa] = paso_atras(fname, x, p, pend)
     % Luis Roman Garcia  - 117077
     % Fernanda Mora Alba - 103596
     %
-    % Análisis Aplicado
+    % An?isis Aplicado
     % Otono 2014
     % ITAM
     %
@@ -21,9 +21,21 @@ function [alfa] = paso_atras(fname, x, p, pend)
     %   alfa  := numero real entre [0,1] donde x + alfa * p cumple
     %            las condiciones de Wolfe.
     %
-    c1      = 0.5;
-    c2      = 0.8;
-    maxiter = 25;
+
+    % iPads:
+    % c1      = 0.5;
+    % c2      = 0.8;
+
+    % Trigo:
+    c1      = 0.001;
+    c2      = 0.9;
+
+    % iPads:
+    % maxiter = 30;
+
+    % Trigo:
+    maxiter = 50;
+
     iter    = 0;
     alfa    = 1.0;
     fx      = feval(fname, x);

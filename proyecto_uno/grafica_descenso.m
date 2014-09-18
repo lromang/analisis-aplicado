@@ -1,12 +1,12 @@
 function [varb] = grafica_descenso(fname, x, d)
     %
-    % Grafica la función f y la dirección de descenso en x.
+    % Grafica la funci? f y la direcci? de descenso en x.
     %
     % Omar Trejo Navarro - 119711
     % Luis Roman Garcia  - 117077
     % Fernanda Mora Alba - 103596
     %
-    % Análisis Aplicado
+    % An?isis Aplicado
     % Otono 2014
     % ITAM
     %
@@ -24,7 +24,7 @@ function [varb] = grafica_descenso(fname, x, d)
     der = gfx' * d;
     if der >= 0
         varb = 0;
-        disp('No tenemos direccion de descenso.');
+        disp('[!] No existe la direccion de descenso.');
     else
         varb = 1;
         t = linspace(0, 1, 50);
@@ -32,7 +32,7 @@ function [varb] = grafica_descenso(fname, x, d)
             xt   = x + t(k) * d;
             y(k) = feval(fname, xt);
         end
-        plot(t, y, '--b', 0, y(1), 'sr', 'Linewidth', 3);
+        plot(t, y, '--b', 0, y(1), 'sr', 'Linewidth', 2);
         title('Funcion a lo largo de la direccion de Newton', 'Fontsize', 18);
         xlabel('Direccion de Newton', 'Fontsize', 14)
         ylabel('Suma de residuales al cuadrado', 'Fontsize', 14)

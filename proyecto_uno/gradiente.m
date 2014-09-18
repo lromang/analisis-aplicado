@@ -6,7 +6,7 @@ function [gfx] = gradiente(fname, x)
     % Luis Roman Garcia  - 117077
     % Fernanda Mora Alba - 103596
     %
-    % Análisis Aplicado
+    % An?isis Aplicado
     % Otono 2014
     % ITAM
     %
@@ -17,7 +17,7 @@ function [gfx] = gradiente(fname, x)
     % Out:
     %   gfx   := vector con la aproximacion al gradiente.
     %
-    h   = 1.e-5;
+    h   = 1.e-05;
     n   = length(x);
     gfx = zeros(n, 1);
     fx  = feval(fname, x);

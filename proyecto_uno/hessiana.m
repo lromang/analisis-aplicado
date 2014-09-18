@@ -19,6 +19,7 @@ function [H] = hessiana(fname, x)
     %
     % Nota: se utilizan diferencias hacia adelante.
     %
+    tol = 1.e-08;
     n  = length(x);
     H  = zeros(n);
     h  = 1.e-05;
@@ -34,9 +35,8 @@ function [H] = hessiana(fname, x)
             xij    = xi;
             xij(j) = xij(j) + h;
             f4     = feval(fname, xij);
-            H(i,j) = (f4 - f2 - f3 + f1) / (h^2);
-            if (i ~= j)
-                % Completar diagonal
+            H(i,j) = (f1 + f4 - f2 - f3) / (h^2);
+            if i ~= j
                 H(j,i) = H(i,j);
             end
         end

@@ -19,8 +19,10 @@ function [Pn] = dir_newton(H, gfx)
     % Out:
     %   Pn  := dirección de Newton.
     %
+
+    % L  = cholesky_nocedal(H);
     L  = cholesky(H);
-    y  = tri_inf(L', -gfx);
-    Pn = tri_sup(L, y);
+    A  = tri_inf(L', -gfx);
+    Pn = tri_sup(L, A);
 end
 
