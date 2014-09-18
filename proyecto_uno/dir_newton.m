@@ -13,8 +13,8 @@ function [Pn] = dir_newton(H, gfx)
     % ITAM
     %
     % In:
-    %   H   := matriz Hesiana de la funcion a evaluar.
-    %   gfx := gradiente de la función a evaluar.
+    %   H   := matriz Hesiana de la funcion.
+    %   gfx := gradiente de la función.
     %
     % Out:
     %   Pn  := dirección de Newton.

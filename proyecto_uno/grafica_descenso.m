@@ -33,7 +33,7 @@ function [varb] = grafica_descenso(fname, x, d)
             y(k) = feval(fname, xt);
         end
         plot(t, y, '--b', 0, y(1), 'sr', 'Linewidth', 3);
-        title('Funcion a lo largo de la direccion', 'Fontsize', 18);
+        title('Funcion a lo largo de la direccion de Newton', 'Fontsize', 18);
         xlabel('Direccion de Newton', 'Fontsize', 14)
         ylabel('Suma de residuales al cuadrado', 'Fontsize', 14)
     end

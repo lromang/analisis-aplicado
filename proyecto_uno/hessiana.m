@@ -12,7 +12,7 @@ function [H] = hessiana(fname, x)
     %
     % In:
     %   fname := cadena de caracteres que codifica la funcion f.
-    %   x     := vector columna de R^n donde se aproxima la Hessiana.
+    %   x     := vector donde se aproxima la Hessiana.
     %
     % Out:
     %   H     := matriz Hessiana evaluada en x.
@@ -24,9 +24,9 @@ function [H] = hessiana(fname, x)
     h  = 1.e-05;
     f1 = feval(fname, x);
     for i = 1:n
-        xi = x;
+        xi    = x;
         xi(i) = xi(i) + h;
-        f2 = feval(fname, xi);
+        f2    = feval(fname, xi);
         for j = 1:i
             xj     = x;
             xj(j)  = xj(j) + h;

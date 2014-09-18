@@ -20,7 +20,7 @@ function [x] = tri_inf(L, b)
     %
     n = length(b);
     for k = 1:n-1
-        x(k) = b(k) / L(k,k);
+        x(k)     = b(k) / L(k,k);
         b(k+1:n) = b(k+1:n) - x(k) * L(k+1:n, k);
     end
     x(n) = b(n) / L(n,n);

@@ -12,7 +12,7 @@ function [x, iter] = met_bus_lin_newton(fname, x)
     %
     % In:
     %   fname := cadena de caracteres que codifica la funcion f.
-    %   x     := columna que representa el punto inicial.
+    %   x     := vector que representa el punto inicial.
     % Out:
     %   x     := vector con aproximación al mínimo local.
     %
@@ -21,13 +21,12 @@ function [x, iter] = met_bus_lin_newton(fname, x)
     iter    = 0;
     gfx     = gradiente(fname, x);
     H       = hessiana(fname, x);
-
     while norm(gfx) > tol && iter < maxiter
        Pn   = dir_newton(H, gfx);
 
        % Para poder observar las graficas.
        varb = grafica_descenso(fname, x, Pn);
-       pause(1)
+       pause(0.5)
 
        pend = gfx' * Pn;
        alfa = paso_atras(fname, x, Pn, pend);

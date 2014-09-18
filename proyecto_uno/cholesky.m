@@ -33,5 +33,5 @@ function [L] = cholesky(A)
 
     % Solo queremos la parte
     % triangular inferior:
-    L      = tril(A)';
+    L = tril(A)';
 end

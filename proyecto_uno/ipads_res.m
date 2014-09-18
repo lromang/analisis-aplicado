@@ -1,4 +1,4 @@
-function [fx] = ipads_res(x)
+function [fx] = ipads_res(x, d)
     %
     % Suma de residuales al cuadrado para el
     % problema de las iPads.
@@ -20,14 +20,14 @@ function [fx] = ipads_res(x)
     % Out:
     %   fx := suma de residuales al cuadrado.
     %
-    r = x(1);
-    K = x(2);
+    r  = x(1);
+    K  = x(2);
     P0 = x(3);
-    n = length(d);
-    t = [1:n];
+    n  = length(d);
+    t  = [1:n];
     for i = 1:n
-        tt = t(i);
-        p(i) = K / (1 + ((K / P0) - 1) * exp(-r * tt));
+        tt     = t(i);
+        p(i)   = K / (1 + ((K / P0) - 1) * exp(-r * tt));
         res(i) = p(i) - d(i);
     end
     fx = (1/2) * res * res';
